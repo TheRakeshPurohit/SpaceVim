@@ -1,6 +1,6 @@
 "=============================================================================
 " edit.vim --- SpaceVim edit layer
-" Copyright (c) 2016-2020 Wang Shidong & Contributors
+" Copyright (c) 2016-2021 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg at 163.com >
 " URL: https://spacevim.org
 " License: GPLv3
@@ -14,6 +14,12 @@ let s:LIST = SpaceVim#api#import('data#list')
 let s:VIM = SpaceVim#api#import('vim')
 let s:CMP = SpaceVim#api#import('vim#compatible')
 let s:BUFFER = SpaceVim#api#import('vim#buffer')
+
+function! SpaceVim#layers#edit#health() abort
+  call SpaceVim#layers#edit#plugins()
+  call SpaceVim#layers#edit#config()
+  return 1
+endfunction
 
 function! SpaceVim#layers#edit#plugins() abort
   let plugins = [
@@ -32,7 +38,6 @@ function! SpaceVim#layers#edit#plugins() abort
         \ [g:_spacevim_root_dir . 'bundle/editorconfig-vim', { 'merged' : 0, 'if' : has('python') || has('python3')}],
         \ [g:_spacevim_root_dir . 'bundle/vim-jplus', { 'on_map' : '<Plug>(jplus' }],
         \ [g:_spacevim_root_dir . 'bundle/tabular',           { 'merged' : 0}],
-        \ [g:_spacevim_root_dir . 'bundle/vim-better-whitespace',  { 'on_cmd' : ['StripWhitespace', 'ToggleWhitespace', 'DisableWhitespace', 'EnableWhitespace']}],
         \ ['andrewradev/splitjoin.vim',{ 'on_cmd':['SplitjoinJoin', 'SplitjoinSplit'],'merged' : 0, 'loadconf' : 1}],
         \ ]
   if executable('fcitx')

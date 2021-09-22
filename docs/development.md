@@ -3,7 +3,7 @@ title: "Development"
 description: "General contributing guidelines and changelog of SpaceVim, including development information about SpaceVim"
 ---
 
-# [Home](../) >> Development
+# Development
 
 <!-- vim-markdown-toc GFM -->
 
@@ -237,7 +237,7 @@ The file header for Vim script should look like the following template:
 ```vim
 "=============================================================================
 " FILENAME --- NAME layer file for SpaceVim
-" Copyright (c) 2016-2020 Wang Shidong & Contributors
+" Copyright (c) 2016-2021 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
 " URL: https://spacevim.org
 " License: GPLv3
@@ -266,7 +266,7 @@ The following example shows how to create a new layer named `foo`:
 "=============================================================================
 
 ""
-" @section foo, layer-foo
+" @section foo, layers-foo
 " @parentsection layers
 " This is the doc for this layer:
 "

@@ -1,13 +1,13 @@
 "=============================================================================
 " statusline.vim --- SpaceVim statusline
-" Copyright (c) 2016-2020 Wang Shidong & Contributors
+" Copyright (c) 2016-2021 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg at 163.com >
 " URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
 
 ""
-" @section core#statusline, layer-core-statusline
+" @section core#statusline, layers-core-statusline
 " @parentsection layers
 " This layer provides default statusline for SpaceVim
 " If you want to use airline's statusline, just disable this layer
@@ -682,13 +682,17 @@ function! SpaceVim#layers#core#statusline#register_mode(mode) abort
   endif
 endfunction
 
+
+
+" This func is used to toggle major mode in statusline
+
 function! SpaceVim#layers#core#statusline#toggle_mode(name) abort
   if index(s:loaded_modes, a:name) != -1
     call remove(s:loaded_modes, index(s:loaded_modes, a:name))
   else
     call add(s:loaded_modes, a:name)
   endif
-  let mode = s:modes[a:name]
+  let mode = get(s:modes, a:name, {})
   call SpaceVim#logger#info('try to call func of mode:' . a:name)
   if has_key(mode, 'func')
     call call(mode.func, [])
@@ -962,6 +966,11 @@ function! SpaceVim#layers#core#statusline#remove_section(name) abort
     call remove(g:spacevim_statusline_right_sections, index(g:spacevim_statusline_left_sections, a:name))
   endif
   let &l:statusline = SpaceVim#layers#core#statusline#get(1)
+endfunction
+
+function! SpaceVim#layers#core#statusline#health() abort
+  call SpaceVim#layers#core#statusline#config()
+  return 1
 endfunction
 
 " vim:set et sw=2 cc=80 nowrap:

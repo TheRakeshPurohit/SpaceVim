@@ -1,13 +1,13 @@
 "=============================================================================
 " tmux.vim --- SpaceVim tmux layer
-" Copyright (c) 2016-2020 Wang Shidong & Contributors
+" Copyright (c) 2016-2021 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg at 163.com >
 " URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
 
 ""
-" @section tmux, layer-tmux
+" @section tmux, layers-tmux
 " @parentsection layers
 " Adds integration between tmux and vim panes. Switch between panes
 " seamlessly.syntax highlighting, commenting, man page navigation
@@ -146,4 +146,10 @@ function! SpaceVim#layers#tmux#get_options() abort
 
   return ['tmuxline_separators', 'tmuxline_separators_alt', 'tmux_navigator_modifier']
 
+endfunction
+
+function! SpaceVim#layers#tmux#health() abort
+  call SpaceVim#layers#tmux#plugins()
+  call SpaceVim#layers#tmux#config()
+  return 1
 endfunction

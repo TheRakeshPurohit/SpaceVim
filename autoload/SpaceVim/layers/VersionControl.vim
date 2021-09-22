@@ -1,6 +1,6 @@
 "=============================================================================
 " VersionControl.vim --- SpaceVim version control layer
-" Copyright (c) 2016-2020 Wang Shidong & Contributors
+" Copyright (c) 2016-2021 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg at 163.com >
 " URL: https://spacevim.org
 " License: GPLv3
@@ -18,6 +18,12 @@ function! SpaceVim#layers#VersionControl#plugins() abort
     call add(plugins, ['mhinz/vim-signify', {'merged' : 0, 'loadconf' : 1}])
   endif
   return plugins
+endfunction
+
+function! SpaceVim#layers#VersionControl#health() abort
+  call SpaceVim#layers#VersionControl#plugins()
+  call SpaceVim#layers#VersionControl#config()
+  return 1
 endfunction
 
 function! SpaceVim#layers#VersionControl#config() abort

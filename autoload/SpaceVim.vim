@@ -1,6 +1,6 @@
 "=============================================================================
 " SpaceVim.vim --- Initialization and core files for SpaceVim
-" Copyright (c) 2016-2020 Wang Shidong & Contributors
+" Copyright (c) 2016-2021 Wang Shidong & Contributors
 " Author: Shidong Wang < wsdjeg at 163.com >
 " URL: https://spacevim.org
 " License: GPLv3
@@ -257,7 +257,7 @@ endif
 ""
 " Set the cache directory of plugins. Default is `$data_dir/vimfiles`.
 " >
-"   let g:spacevim_plugin_bundle_dir = g:spacevim_data_dir.'/vimplugs'
+"   let g:spacevim_plugin_bundle_dir = g:spacevim_data_dir.'vimplugs'
 " <
 let g:spacevim_plugin_bundle_dir
       \ = g:spacevim_data_dir . join(['vimfiles', ''],
@@ -403,11 +403,11 @@ let g:spacevim_enable_ycm              = 0
 " @section sidebar_width, options-sidebar_width
 " @parentsection options
 " Set the width of the SpaceVim sidebar. Default is 30.
-" This value will be used by tagbar and vimfiler.
+" This value will be used by tagbar and filetree.
 
 ""
 " Set the width of the SpaceVim sidebar. Default is 30.
-" This value will be used by tagbar and vimfiler.
+" This value will be used by tagbar and filetree.
 let g:spacevim_sidebar_width           = 30
 
 ""
@@ -789,13 +789,13 @@ let g:spacevim_colorscheme_default     = 'desert'
 ""
 " @section filemanager, options-filemanager
 " @parentsection options
-" The default file manager of SpaceVim. Default is 'vimfiler'.
-" you can also use nerdtree or defx
+" The default file manager of SpaceVim. Default is 'nerdtree'.
+" you can also use defx or vimfiler
 
 ""
-" The default file manager of SpaceVim. Default is 'vimfiler'.
-" you can also use nerdtree or defx
-let g:spacevim_filemanager             = 'vimfiler'
+" The default file manager of SpaceVim. Default is 'nerdtree'.
+" you can also use defx or vimfiler
+let g:spacevim_filemanager             = 'nerdtree'
 ""
 " @section filetree_direction, options-filetree_direction
 " @parentsection options
@@ -1195,12 +1195,6 @@ let g:spacevim_enable_vimfiler_welcome = 1
 ""
 " Enable/Disable autocompletion of parentheses, default is 1 (enabled).
 let g:spacevim_autocomplete_parens = 1
-""
-" Enable/Disable gitstatus column in vimfiler buffer, default is 0.
-let g:spacevim_enable_vimfiler_gitstatus = 0
-""
-" Enable/Disable filetypeicon column in vimfiler buffer, default is 0.
-let g:spacevim_enable_vimfiler_filetypeicon = 0
 let g:spacevim_smartcloseignorewin     = ['__Tagbar__' , 'vimfiler:default']
 let g:spacevim_smartcloseignoreft      = [
       \ 'tagbar',
@@ -1696,9 +1690,21 @@ endfunction
 
 ""
 " @section Changelog, changelog
-" Following HEAD: changes in master branch since last release v1.4.0
+" Following HEAD: changes in master branch since last release v1.7.0
 "
 " https://github.com/SpaceVim/SpaceVim/wiki/Following-HEAD
+"
+" 2021-06-16: v1.4.0
+"
+" https://spacevim.org/SpaceVim-release-v1.7.0/
+"
+" 2020-12-31: v1.6.0
+"
+" https://spacevim.org/SpaceVim-release-v1.6.0/
+"
+" 2020-08-01: v1.5.0
+"
+" https://spacevim.org/SpaceVim-release-v1.5.0/
 "
 " 2020-04-05: v1.4.0
 "
